@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "527f27e5-fe3b-4864-9cfa-e1546b5dc9a2",
+		"name": "APITest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4670748"
+	},
+	"item": [
+		{
+			"name": "test01",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"verify that userId property exists and equals 1\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.hasOwnProperty('userId'));\r",
+							"    pm.expect(jsonData.userId).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test02",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"verify that completed property data type is boolean\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.hasOwnProperty('completed'));\r",
+							"    pm.expect(typeof jsonData.completed).to.eql(\"boolean\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/todos/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"todos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test03_04",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"verify that response body size is 5\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(5);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"verify that body of Davion value equals we expected\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    let jsonData = pm.response.json();\r",
+							"    let body = jsonData.filter(e => e.email.startsWith(\"Davion\"))[0].body;\r",
+							"    pm.expect(body).to.eql(\"aliquam pariatur suscipit fugiat eos sunt\\noptio voluptatem eveniet rerum dignissimos\\nquia aut beatae\\nmodi consequatur qui rerum sint veritatis deserunt est\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/100/comments",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"100",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test05_v1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var name = \"나다\";\r",
+							"var email = \"test_id@naver.com\";\r",
+							"var body = \"본문이에요\";\r",
+							"var postId = \"100\";\r",
+							"\r",
+							"pm.test(\"verify that response data equals data we posted\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(name);\r",
+							"    pm.expect(jsonData.email).to.eql(email);\r",
+							"    pm.expect(jsonData.body).to.eql(body);\r",
+							"    pm.expect(jsonData.postId).to.eql(postId);\r",
+							"    pm.expect(jsonData.id).to.eql(501);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"나다\",\r\n    \"email\": \"test_id@naver.com\",\r\n    \"body\": \"본문이에요\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/100/comments",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"100",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test05_v2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"verify that response data equals data we posted\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get('NAME'));\r",
+							"    pm.expect(jsonData.email).to.eql(pm.environment.get('EMAIL'));\r",
+							"    pm.expect(jsonData.body).to.eql(pm.environment.get('BODY'));\r",
+							"    pm.expect(jsonData.postId).to.eql(pm.environment.get('POST_ID'));\r",
+							"    pm.expect(jsonData.id).to.eql(501);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set('POST_ID', '100');\r",
+							"pm.environment.set('NAME', '나다');\r",
+							"pm.environment.set('EMAIL', 'test_id@naver.com');\r",
+							"pm.environment.set('BODY', '본문이에요');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{NAME}}\",\r\n    \"email\": \"{{EMAIL}}\",\r\n    \"body\": \"{{BODY}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/{{POST_ID}}/comments",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"{{POST_ID}}",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test06",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"always fail\", () => {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
