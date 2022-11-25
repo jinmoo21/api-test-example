@@ -11,5 +11,5 @@ Run with [Postman](https://www.postman.com/) or [newman](https://www.postman.com
 
 ### Newman
 ```shell
-newman run postman/APITest.postman_collection.json
+newman run APITest.postman_collection.json
 ```

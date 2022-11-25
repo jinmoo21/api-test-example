@@ -1,0 +1,25 @@
+name: CI - 🧪
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  postman:
+    name: api test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Set up Node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - name: Install dependencies
+        run: |
+          cd postman
+          npm ci
+      - name: Test with newman
+        run: newman run APITest.postman_collection.json
+       
