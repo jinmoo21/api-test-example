@@ -83,10 +83,11 @@ API test example via [JSONPlaceholder](https://jsonplaceholder.typicode.com)
 - verify that response data equals data we posted
 ```json
 {
-  "userId": 1,
-  "id": 1,
-  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+  "name": "나다",
+  "email": "test_id@naver.com",
+  "body": "본문이에요",
+  "postId": "100",
+  "id": 501
 }
 ```
 
