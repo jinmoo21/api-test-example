@@ -3,5 +3,5 @@ Run with [unittest](https://docs.python.org/ko/3/library/unittest.html) + [reque
 
 ## How to Test
 ```shell
-python -m unittest
+python -m unittest discover test/ api_test.py
 ```
