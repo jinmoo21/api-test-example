@@ -90,6 +90,3 @@ API test example via [JSONPlaceholder](https://jsonplaceholder.typicode.com)
   "id": 501
 }
 ```
-
-## Test06: GET /posts/1
-- always fail
