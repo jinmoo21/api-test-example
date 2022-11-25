@@ -61,11 +61,6 @@ class APITest(unittest.TestCase):
         self.assertEqual(r.json()['email'], email)
         self.assertEqual(r.json()['body'], body)
 
-    def test_06(self):
-        r = requests.get(url=f'{self.url}/posts/1')
-        print(r.json())
-        self.assertEqual(r.status_code, 404)
-
 
 if __name__ == '__main__':
     unittest.main()
