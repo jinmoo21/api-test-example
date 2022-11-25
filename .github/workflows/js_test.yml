@@ -1,4 +1,4 @@
-name: CI - 🧪
+name: CI - Javascript
 on:
   push:
     branches:
