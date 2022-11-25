@@ -17,7 +17,7 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
           cache: 'maven'
-      - name: Test with Maven
+      - name: Test with TestNG
         run: |
           cd java
           mvn test
