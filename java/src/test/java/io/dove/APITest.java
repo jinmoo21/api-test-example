@@ -102,15 +102,4 @@ public class APITest {
 			.body("$", hasEntry("body", body));
 			//.log().body();
 	}
-	
-	@Test (testName = "GET /posts/1", description = "always fail")
-	public void test06() {
-		given()
-			.baseUri(uri)
-		.when()
-			.get("/posts/1")
-		.then()
-			.assertThat()
-			.statusCode(404);
-	}
 }

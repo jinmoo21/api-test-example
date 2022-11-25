@@ -12,25 +12,25 @@ class APITest(unittest.TestCase):
 
     def test_01(self):
         r = requests.get(url=f'{self.url}/posts/1')
-        print(r.json())
+        # print(r.json())
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.json()['userId'], 1)
 
     def test_02(self):
         r = requests.get(url=f'{self.url}/todos/1')
-        print(r.json())
+        # print(r.json())
         self.assertEqual(r.status_code, 200)
         self.assertEqual(type(r.json()['completed']), bool)
 
     def test_03(self):
         r = requests.get(url=f'{self.url}/posts/100/comments')
-        print(r.json())
+        # print(r.json())
         self.assertEqual(r.status_code, 200)
         self.assertEqual(len(r.json()), 5)
 
     def test_04(self):
         r = requests.get(url=f'{self.url}/posts/100/comments')
-        print(r.json())
+        # print(r.json())
         self.assertEqual(r.status_code, 200)
         for davion in filter(lambda e: str(e['email']).startswith('Davion'), r.json()):
             # print(davion['body'])
@@ -60,11 +60,6 @@ class APITest(unittest.TestCase):
         self.assertEqual(r.json()['name'], name)
         self.assertEqual(r.json()['email'], email)
         self.assertEqual(r.json()['body'], body)
-
-    def test_06(self):
-        r = requests.get(url=f'{self.url}/posts/1')
-        print(r.json())
-        self.assertEqual(r.status_code, 404)
 
 
 if __name__ == '__main__':

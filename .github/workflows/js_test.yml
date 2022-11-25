@@ -1,9 +1,8 @@
-name: CI - 🧪
+name: CI - Javascript
 on:
   push:
     branches:
-      - main
-      
+      - 'v**'
 jobs:
   javascript:
     name: api test
@@ -15,10 +14,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install dependencies
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+      - name: Preparing test
         run: |
-          cd javascript
+          npm install mocha jest supertest --save-dev
           npm ci
       - name: Test with mocha
-        run: npm test
-       
+        run: |
+          cd js
+          npm test

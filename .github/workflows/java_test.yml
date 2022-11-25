@@ -1,9 +1,8 @@
-name: CI - 🧪
+name: CI - Java
 on:
   push:
     branches:
-      - main
-      
+      - 'v**'
 jobs:
   java:
     name: api test
@@ -16,6 +15,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
+          cache: 'maven'
       - name: Test with TestNG
         run: |
           cd java

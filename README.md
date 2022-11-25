@@ -1,4 +1,10 @@
 # API Test Example
+
+[![py test](https://github.com/jinmoo21/api-test-example/actions/workflows/py_test.yml/badge.svg)](https://github.com/jinmoo21/api-test-example/actions/workflows/py_test.yml)
+[![java test](https://github.com/jinmoo21/api-test-example/actions/workflows/java_test.yml/badge.svg)](https://github.com/jinmoo21/api-test-example/actions/workflows/java_test.yml)
+[![js test](https://github.com/jinmoo21/api-test-example/actions/workflows/js_test.yml/badge.svg)](https://github.com/jinmoo21/api-test-example/actions/workflows/js_test.yml)
+[![postman test](https://github.com/jinmoo21/api-test-example/actions/workflows/postman_test.yml/badge.svg)](https://github.com/jinmoo21/api-test-example/actions/workflows/postman_test.yml)
+
 API test example via [JSONPlaceholder](https://jsonplaceholder.typicode.com)
 
 ## Test01: GET /posts/1
@@ -90,6 +96,3 @@ API test example via [JSONPlaceholder](https://jsonplaceholder.typicode.com)
   "id": 501
 }
 ```
-
-## Test06: GET /posts/1
-- always fail

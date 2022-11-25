@@ -1,9 +1,8 @@
-name: CI - 🧪
+name: CI - Postman
 on:
   push:
     branches:
-      - main
-      
+      - 'v**'
 jobs:
   postman:
     name: api test
@@ -15,10 +14,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install dependencies
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+      - name: Preparing test
         run: |
-          cd postman
+          npm install newman --save-dev
           npm ci
       - name: Test with newman
-        run: newman run APITest.postman_collection.json
+        run: |
+          cd postman
+          newman run APITest.postman_collection.json
        

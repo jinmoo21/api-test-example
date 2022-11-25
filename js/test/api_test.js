@@ -107,11 +107,3 @@ describe('POST /posts/'+ postId + '/comments', () => {
         });
     });
 });
-
-describe('GET /posts/1', () => {
-    it('always fail', (done) => {
-        request('https://jsonplaceholder.typicode.com')
-        .get('/posts/1')
-        .expect(404, done)
-    });
-});
