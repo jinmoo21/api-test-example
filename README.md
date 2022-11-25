@@ -1,5 +1,5 @@
-# API Testing Example
-API testing example using "https://jsonplaceholder.typicode.com"
+# API Test Example
+API test example via "https://jsonplaceholder.typicode.com"
 
 ## Test01: GET /posts/1
 - verify that userId property exists and equals 1
