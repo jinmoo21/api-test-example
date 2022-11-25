@@ -18,9 +18,7 @@ jobs:
           cache-dependency-path: '**/package-lock.json'
       - name: Preparing test
         run: |
-          npm install mocha --save-dev
-          npm install jest --save-dev
-          npm install supertest --save-dev
+          npm install mocha jest supertest --save-dev
           npm ci
       - name: Test with newman
         run: |
