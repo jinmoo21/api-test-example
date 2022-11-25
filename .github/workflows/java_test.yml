@@ -5,8 +5,8 @@ on:
       - main
       
 jobs:
-  firefox:
-    java: api test
+  java:
+    name: api test
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
