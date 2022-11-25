@@ -17,7 +17,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'js/package-lock.json'
       - name: Preparing test
-        run: npm ci
+        run: npm ci --no-save --legacy-peer-deps
       - name: Test with newman
         run: |
           cd postman
