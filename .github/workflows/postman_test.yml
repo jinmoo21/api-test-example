@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-          cache-dependency-path: '**/package-lock.json'
+          cache-dependency-path: 'js/package-lock.json'
       - name: Preparing test
         run: npm ci
       - name: Test with newman
