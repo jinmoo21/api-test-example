@@ -15,9 +15,13 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-          cache-dependency-path: 'js/package-lock.json'
+          cache-dependency-path: '**/package-lock.json'
       - name: Preparing test
-        run: npm ci --no-save --legacy-peer-deps
+        run: |
+          npm install mocha --save-dev
+          npm install jest --save-dev
+          npm install supertest --save-dev
+          npm ci
       - name: Test with newman
         run: |
           cd postman
