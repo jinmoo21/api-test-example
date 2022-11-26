@@ -1,8 +1,7 @@
 name: CI - Javascript
 on:
   push:
-    branches:
-      - 'v**'
+  pull_request:
 jobs:
   javascript:
     name: api test

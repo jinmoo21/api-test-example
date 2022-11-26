@@ -1,8 +1,7 @@
 name: CI - Python
 on:
   push:
-    branches:
-      - 'v**'
+  pull_request:
 jobs:
   py:
     name: api test
