@@ -1,8 +1,7 @@
 name: CI - Java
 on:
   push:
-    branches:
-      - 'v**'
+  pull_request:
 jobs:
   java:
     name: api test
